@@ -156,10 +156,17 @@ showSingleCategoryDetails = (data) => {
 
 
 trending = () => {
-    const filterData = storeData.filter(data => data.others_info.is_trending === true
+    const trendingData = storeData.filter(data => data.others_info.is_trending === true
     )
     const categoryName = document.getElementById("categeroy-name").innerText;
-    displayCategory(filterData, categoryName)
+    displayCategory(trendingData, categoryName)
+
+}
+
+todaysPick =() => {
+    const todayPickData = storeData.filter(data => data.others_info.is_todays_pick === true )
+    const categoryName = document.getElementById("categeroy-name").innerText;
+    displayCategory(todayPickData, categoryName)
 
 }
 
