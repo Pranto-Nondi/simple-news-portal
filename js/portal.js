@@ -39,7 +39,7 @@ displayCategory = (data, categoryName) => {
     document.getElementById("categeroy-name").innerText = categoryName;
     document.getElementById("categories-conatiner").innerHTML = "";
     data.forEach(element => {
-        const { details, image_url, title } = element
+        const { details, image_url, title, author, total_view, rating } = element
         document.getElementById("categories-conatiner").innerHTML += `
         <div class="card mb-3" >
                     <div class="row g-0">
@@ -50,7 +50,34 @@ displayCategory = (data, categoryName) => {
                             <div class="card-body">
                                 <h5 class="card-title">${title}</h5>
                                 <p class="card-text">${details.slice(0, 200)}</p>
-                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                <div class="d-flex justify-content-around align-items-center">
+                               
+                                <div class="d-flex justify-content-center align-items-center gap-1 ">
+                                <div>
+                                <img src="${author.img}" class="img-fluid rounded-circle" height="40" width="40" />
+                                 </div>
+                                <div>
+                                <p class="m-0 p-0">${author.name}</p>
+                                <p class="m-0 p-0">${author.published_date}</p>
+                                </div>
+                                 </div>
+                               <div class="d-flex align-items-center justify-content-center gap-2">
+                               <i class="fa-regular fa-eye"></i>
+                               <p class="m-0 p-0">${total_view}</p>
+                               </div>
+                               <div class="d-flex align-items-center justify-content-center gap-2">
+                               <i class="fa-regular fa-star"></i>
+                               <i class="fa-regular fa-star"></i>
+                               <i class="fa-regular fa-star"></i>
+                               <i class="fa-regular fa-star"></i>
+                               <i class="fa-regular fa-star"></i>
+                                <div> 
+                                <p class="m-0 p-0" >${rating.number}</p>
+                                </div>
+                               </div>
+                               <div class="d-flex ">
+                               <i class="fa-sharp fa-solid fa-angle-right"></i>
+                               </div></div>
                             </div>
                         </div>
                     </div>
