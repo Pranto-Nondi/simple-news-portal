@@ -3,21 +3,48 @@ const categoriesFetchData = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
-            displayCategoriesData(data.data)
+            displayCategoriesName(data.data)
         })
 }
 
 
 
 
-displayCategoriesData = (data) => {
+displayCategoriesName = (data) => {
     console.log(data);
-    const categories=document.getElementById("categories");
+    const categories = document.getElementById("categories");
     const { news_category } = data;
     news_category.forEach(category => {
-        categories.innerHTML+=`  <a class="nav-link active" href="#">${category.category_name}</a>`
+        categories.innerHTML += `  <a class="nav-link active" onclick="fetchCategoryFound('${category.category_id}','${category.category_name}')" href="#">${category.category_name}</a>`
     });
 
 }
+
+const fetchCategoryFound = (id, categoryName) => {
+    console.log(id, categoryName)
+    fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            displayCategoryFound(data.data, categoryName)
+
+        })
+
+
+}
+
+displayCategoryFound = (data, categoryName) => {
+    console.log(data)
+    document.getElementById("count").innerText = data.length;
+    document.getElementById("categeroy-name").innerText = categoryName;
+
+
+
+
+}
+
+
+
+
 
 categoriesFetchData();
