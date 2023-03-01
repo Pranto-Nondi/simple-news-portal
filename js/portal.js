@@ -92,7 +92,7 @@ displayCategory = (data, categoryName) => {
 
 const fetchSingleDetails = (_id) => {
     console.log(_id)
-    
+
     fetch(`https://openapi.programming-hero.com/api/news/${_id}`)
         .then(res => res.json())
         .then(data => {
@@ -104,7 +104,7 @@ const fetchSingleDetails = (_id) => {
 
 showSingleCategoryDetails = (data) => {
     console.log(data);
-    const { _id, details, image_url, title, author, total_view, rating, category_id } = data;
+    const { _id, details, image_url, title, author, total_view, rating, category_id, others_info } = data;
     document.getElementById("modal-body-category").innerHTML = `
     <div class="card mb-3" >
     <div class="row g-0">
@@ -113,8 +113,12 @@ showSingleCategoryDetails = (data) => {
         </div>
         <div class="col-md-12">
             <div class="card-body">
-                <h5 class="card-title">${title}</h5>
+                <h5 class="card-title">${title}.
+                <span style="background:yellow" class="fs-5 border-2">${others_info.is_trending ? "Trending" : "Not Trending"}</span>
+                </h5>
+               
                 <p class="card-text">${details.slice(0, 200)}</p>
+               
                 <div class="d-flex justify-content-around align-items-center">
                
                 <div class="d-flex justify-content-center align-items-center gap-1 ">
