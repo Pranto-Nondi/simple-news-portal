@@ -1,6 +1,7 @@
 let storeData = [];
 let rawData = []
 
+
 const categoriesFetchData = () => {
     fetch(`https://openapi.programming-hero.com/api/news/categories`)
         .then(res => res.json())
@@ -165,7 +166,6 @@ trending = () => {
     displayCategory(trendingData, categoryName)
 
 }
-
 const todaysPick = () => {
     const todayPickData = storeData.filter(data => data.others_info.is_todays_pick === true)
     const categoryName = document.getElementById("categeroy-name").innerText;
@@ -173,27 +173,27 @@ const todaysPick = () => {
 
 }
 selectSort = () => {
+    const categoryName = document.getElementById("categeroy-name").innerText;
     const select = document.getElementById("sorting");
     console.log(select.value)
     console.log(storeData, rawData)
-
     if (select.value === 'ascending') {
         console.log(storeData, rawData)
         const Ascending = storeData.sort((a, b) => a.total_view - b.total_view);
         console.log(Ascending)
-        const categoryName = document.getElementById("categeroy-name").innerText;
+
         displayCategory(Ascending, categoryName)
     }
     else if (select.value === 'descending') {
 
         const Descending = storeData.sort((a, b) => b.total_view - a.total_view);
         console.log(Descending)
-        const categoryName = document.getElementById("categeroy-name").innerText;
+
         displayCategory(Descending, categoryName)
 
     }
     else {
-        const categoryName = document.getElementById("categeroy-name").innerText;
+
         console.log(storeData, rawData)
         displayCategory(rawData, categoryName)
     }
