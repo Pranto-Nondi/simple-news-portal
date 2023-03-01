@@ -39,7 +39,8 @@ displayCategory = (data, categoryName) => {
     document.getElementById("categeroy-name").innerText = categoryName;
     document.getElementById("categories-conatiner").innerHTML = "";
     data.forEach(element => {
-        const {_id, details, image_url, title, author, total_view, rating, category_id } = element
+
+        const { _id, details, image_url, title, author, total_view, rating, category_id } = element
         document.getElementById("categories-conatiner").innerHTML += `
         <div class="card mb-3" >
                     <div class="row g-0">
@@ -90,10 +91,12 @@ displayCategory = (data, categoryName) => {
 
 
 const fetchSingleDetails = (_id) => {
-    fetch(`https://openapi.programming-hero.com/api/news/category/${_id}`)
+    console.log(_id)
+    
+    fetch(`https://openapi.programming-hero.com/api/news/${_id}`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            console.log(data.data[0])
             showSingleCategoryDetails(data.data[0])
         })
 
@@ -101,7 +104,7 @@ const fetchSingleDetails = (_id) => {
 
 showSingleCategoryDetails = (data) => {
     console.log(data);
-    const {_id, details, image_url, title, author, total_view, rating, category_id } = data;
+    const { _id, details, image_url, title, author, total_view, rating, category_id } = data;
     document.getElementById("modal-body-category").innerHTML = `
     <div class="card mb-3" >
     <div class="row g-0">
