@@ -159,6 +159,7 @@ showSingleCategoryDetails = (data) => {
 }
 
 
+
 trending = () => {
     const trendingData = storeData.filter(data => data.others_info.is_trending === true
     )
