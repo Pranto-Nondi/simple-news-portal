@@ -163,9 +163,27 @@ trending = () => {
 
 }
 
-todaysPick =() => {
-    const todayPickData = storeData.filter(data => data.others_info.is_todays_pick === true )
+const todaysPick = () => {
+    const todayPickData = storeData.filter(data => data.others_info.is_todays_pick === true)
     const categoryName = document.getElementById("categeroy-name").innerText;
     displayCategory(todayPickData, categoryName)
+
+}
+const selectSort = () => {
+    const select = document.getElementById("sorting");
+    console.log(select.value)
+
+    if (select.value === 'ascending') {
+        Ascending = storeData.sort((a, b) => a.total_view - b.total_view);
+        console.log(Ascending)
+        const categoryName = document.getElementById("categeroy-name").innerText;
+        displayCategory(Ascending, categoryName)
+    }
+    else {
+        Descending = storeData.sort((a, b) => b.total_view - a.total_view);
+        console.log(Descending)
+        const categoryName = document.getElementById("categeroy-name").innerText;
+        displayCategory(Descending, categoryName)
+    }
 
 }
