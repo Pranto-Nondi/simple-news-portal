@@ -169,5 +169,3 @@ todaysPick =() => {
     displayCategory(todayPickData, categoryName)
 
 }
-
-categoriesFetchData();
