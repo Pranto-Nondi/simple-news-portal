@@ -1,3 +1,4 @@
+let storeData = [];
 const categoriesFetchData = () => {
     fetch(`https://openapi.programming-hero.com/api/news/categories`)
         .then(res => res.json())
@@ -26,6 +27,7 @@ const fetchCategoryFound = (id, categoryName) => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
+            storeData = data.data;
             displayCategory(data.data, categoryName)
 
         })
@@ -40,7 +42,7 @@ displayCategory = (data, categoryName) => {
     document.getElementById("categories-conatiner").innerHTML = "";
     data.forEach(element => {
 
-        const { _id, details, image_url, title, author, total_view, rating, category_id } = element
+        const { _id, details, image_url, title, author, total_view, rating, category_id, others_info } = element
         document.getElementById("categories-conatiner").innerHTML += `
         <div class="card mb-3" >
                     <div class="row g-0">
@@ -152,5 +154,13 @@ showSingleCategoryDetails = (data) => {
 
 }
 
+
+trending = () => {
+    const filterData = storeData.filter(data => data.others_info.is_trending === true
+    )
+    const categoryName = document.getElementById("categeroy-name").innerText;
+    displayCategory(filterData, categoryName)
+
+}
 
 categoriesFetchData();
