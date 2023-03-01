@@ -34,10 +34,36 @@
     </header>
 
     <!-- main section  -->
-
+    <!-- category found -->
     <section class=" container  mt-4">
         <div class="alert alert-light  " role="alert">
             <span id="count">0</span> items found for category <span id="categeroy-name"></span>
+        </div>
+    </section>
+    <!-- sort view and trending -->
+    <section class=" container d-flex justify-content-between">
+        <div class="d-flex justify-content-center align-items-center gap-2 ">
+            <div>
+                <p class="m-0 p-0">sort by view:</p>
+            </div>
+
+            <div>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Default</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="d-flex gap-2">
+            <div>
+                <button type="button" class="btn btn-primary">Today’s Pick</button>
+            </div>
+            <div>
+                <button type="button" class="btn btn-success">Trending</button>
+            </div>
         </div>
     </section>
 
