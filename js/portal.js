@@ -12,8 +12,6 @@ const categoriesFetchData = () => {
 }
 
 
-
-
 displayCategoriesName = (data) => {
     console.log(data);
     const categories = document.getElementById("categories");
@@ -70,7 +68,7 @@ displayCategory = (data, categoryName) => {
                                  </div>
                                <div class="d-flex align-items-center justify-content-center gap-2">
                                <i class="fa-regular fa-eye"></i>
-                               <p class="m-0 p-0">${total_view}</p>
+                               <p class="m-0 p-0">${total_view===null?0:total_view}</p>
                                </div>
                                <div class="d-flex align-items-center justify-content-center gap-2">
                                <i class="fa-regular fa-star"></i>
@@ -138,7 +136,7 @@ showSingleCategoryDetails = (data) => {
                  </div>
                <div class="d-flex align-items-center justify-content-center gap-2">
                <i class="fa-regular fa-eye"></i>
-               <p class="m-0 p-0">${total_view}</p>
+               <p class="m-0 p-0">${total_view===null?0:total_view}</p>
                </div>
                <div class="d-flex align-items-center justify-content-center gap-2">
                <i class="fa-regular fa-star"></i>
