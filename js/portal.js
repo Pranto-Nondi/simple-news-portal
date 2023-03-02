@@ -1,3 +1,5 @@
+// data store and copy
+
 let storeData = [];
 let rawData = []
 
@@ -115,6 +117,7 @@ const fetchSingleDetails = (_id) => {
         })
 
 }
+
 // modal open single details
 
 showSingleCategoryDetails = (data) => {
