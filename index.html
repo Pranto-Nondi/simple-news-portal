@@ -15,7 +15,7 @@
 </head>
 
 <body style="background-color: #e3dfdf" onload="categoriesFetchData()">
-    <!-- simple navbar -->
+    <!--  navbar -->
     <header class="container">
         <nav class="navbar mt-2">
             <div class="container">
@@ -28,13 +28,13 @@
 
         </nav>
         <hr class="container">
-        <!-- new categeroy section -->
+        <!--  only all category name section ui display -->
         <section id="categories" class="  d-flex justify-content-around">
         </section>
     </header>
 
     <!-- main section  -->
-    <!-- category found -->
+    <!-- every sing category category count  and name in ui display-->
     <section class=" container  mt-4">
         <div class="alert alert-light  " role="alert">
             <span id="count">0</span> items found for category <span id="categeroy-name"></span>
@@ -50,16 +50,17 @@
             <div>
                 <select id="sorting" onchange="selectSort()" class="form-select" aria-label="Default select example">
                     <option id="default" selected>Default</option>
-                    <option id="select-1"   value="ascending">Ascending</option>
+                    <option id="select-1" value="ascending">Ascending</option>
                     <option id="select-2" value="descending">Descending</option>
-                   
+
                 </select>
             </div>
         </div>
 
         <div class="d-flex gap-2">
             <div>
-                <button id="todays-pick-btn" onclick="todaysPick()" type="button" class="btn btn-primary">Today’s Pick</button>
+                <button id="todays-pick-btn" onclick="todaysPick()" type="button" class="btn btn-primary">Today’s
+                    Pick</button>
             </div>
             <div>
                 <button id="trending-btn" onclick="trending()" type="button" class="btn btn-success">Trending</button>
@@ -67,13 +68,13 @@
         </div>
     </section>
 
-    <!-- card display -->
-    <section id="categories-conatiner" class="container mt-3 pt-3">
+    <!-- every category  display  by using category data with category name -->
+    <section id="categories-container" class="container mt-3 pt-3">
 
     </section>
-    <!--  modal -->
+    <!-- launcher modal  -->
+    <!-- every single category ui display using by category id with name -->
     <section>
-        <!-- Modal -->
         <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -82,7 +83,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div id="modal-body-category" class="modal-body">
-                       
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

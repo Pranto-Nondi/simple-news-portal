@@ -48,13 +48,13 @@ displayCategory = (data, categoryName) => {
 
     document.getElementById("count").innerText = data.length;
     document.getElementById("categeroy-name").innerText = categoryName;
-    document.getElementById("categories-conatiner").innerHTML = "";
+    document.getElementById("categories-container").innerHTML = "";
     data.forEach(element => {
 
         const { _id, details, image_url, title, author, total_view, rating, category_id, others_info } = element
         const publishedDate = new Date(author.published_date).toLocaleString().slice(0, 10)
         console.log(publishedDate)
-        document.getElementById("categories-conatiner").innerHTML += `
+        document.getElementById("categories-container").innerHTML += `
         <div class="card mb-3" >
                     <div class="row g-0">
                         <div class="col-md-4">
