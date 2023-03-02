@@ -62,13 +62,13 @@ displayCategory = (data, categoryName) => {
                                 <img src="${author.img}" class="img-fluid rounded-circle" height="40" width="40" />
                                  </div>
                                 <div>
-                                <p class="m-0 p-0">${author.name}</p>
-                                <p class="m-0 p-0">${author.published_date}</p>
+                                <p class="m-0 p-0">${author.name === null || author.name === "" ? "Not available" : author.name}</p>
+                                <p class="m-0 p-0">${author.published_date === null || author.published_date === "" ? "upadate Soon" : new Date(author.published_date).toLocaleString().slice(0, 10)}</p>
                                 </div>
                                  </div>
                                <div class="d-flex align-items-center justify-content-center gap-2">
                                <i class="fa-regular fa-eye"></i>
-                               <p class="m-0 p-0">${total_view===null?0:total_view}</p>
+                               <p class="m-0 p-0">${total_view === null ? 0 : total_view}</p>
                                </div>
                                <div class="d-flex align-items-center justify-content-center gap-2">
                                <i class="fa-regular fa-star"></i>
@@ -130,13 +130,13 @@ showSingleCategoryDetails = (data) => {
                 <img src="${author.img}" class="img-fluid rounded-circle" height="40" width="40" />
                  </div>
                 <div>
-                <p class="m-0 p-0">${author.name}</p>
-                <p class="m-0 p-0">${author.published_date}</p>
+                <p class="m-0 p-0">${author.name === null || author.name === "" ? "Not available" : author.name}</p>
+                <p class="m-0 p-0">${author.published_date === null || author.published_date === "" ? "upadates Later" : new Date(author.published_date).toLocaleString().slice(0, 10)}</p>
                 </div>
                  </div>
                <div class="d-flex align-items-center justify-content-center gap-2">
                <i class="fa-regular fa-eye"></i>
-               <p class="m-0 p-0">${total_view===null?0:total_view}</p>
+               <p class="m-0 p-0">${total_view === null ? 0 : total_view}</p>
                </div>
                <div class="d-flex align-items-center justify-content-center gap-2">
                <i class="fa-regular fa-star"></i>
@@ -198,3 +198,8 @@ selectSort = () => {
     }
 
 }
+
+
+
+
+console.log(new Date("2022-08-24 17:27:34").toLocaleString().slice(0, 10));
