@@ -45,6 +45,8 @@ displayCategory = (data, categoryName) => {
     data.forEach(element => {
 
         const { _id, details, image_url, title, author, total_view, rating, category_id, others_info } = element
+        const publishedDate = new Date(author.published_date).toLocaleString().slice(0, 10)
+        console.log(publishedDate)
         document.getElementById("categories-conatiner").innerHTML += `
         <div class="card mb-3" >
                     <div class="row g-0">
@@ -63,7 +65,7 @@ displayCategory = (data, categoryName) => {
                                  </div>
                                 <div>
                                 <p class="m-0 p-0">${author.name === null || author.name === "" ? "Not available" : author.name}</p>
-                                <p class="m-0 p-0">${author.published_date === null || author.published_date === "" ? "upadate Soon" : new Date(author.published_date).toLocaleString().slice(0, 10)}</p>
+                                <p class="m-0 p-0">${publishedDate === null || publishedDate === "" ? "upadate Soon" : publishedDate}</p>
                                 </div>
                                  </div>
                                <div class="d-flex align-items-center justify-content-center gap-2">
@@ -81,7 +83,7 @@ displayCategory = (data, categoryName) => {
                                 </div>
                                </div>
                                <div class="d-flex ">
-                               <i data-bs-target="#categoryModal" data-bs-toggle="modal" class="fa-sharp fa-solid fa-angle-right" onclick="fetchSingleDetails('${_id}')"></i>
+                               <i  data-bs-target="#categoryModal" data-bs-toggle="modal" class="fa-sharp fa-solid fa-angle-right" onclick="fetchSingleDetails('${_id}')"></i>
                                </div></div>
                             </div>
                         </div>
@@ -109,6 +111,7 @@ const fetchSingleDetails = (_id) => {
 showSingleCategoryDetails = (data) => {
     console.log(data);
     const { _id, details, image_url, title, author, total_view, rating, category_id, others_info } = data;
+    const publishedDate = new Date(author.published_date).toLocaleString().slice(0, 10)
     document.getElementById("modal-body-category").innerHTML = `
     <div class="card mb-3" >
     <div class="row g-0">
@@ -131,7 +134,7 @@ showSingleCategoryDetails = (data) => {
                  </div>
                 <div>
                 <p class="m-0 p-0">${author.name === null || author.name === "" ? "Not available" : author.name}</p>
-                <p class="m-0 p-0">${author.published_date === null || author.published_date === "" ? "upadates Later" : new Date(author.published_date).toLocaleString().slice(0, 10)}</p>
+                <p class="m-0 p-0">${publishedDate === null || publishedDate === "" ? "upadate Soon" : publishedDate}</p>
                 </div>
                  </div>
                <div class="d-flex align-items-center justify-content-center gap-2">
