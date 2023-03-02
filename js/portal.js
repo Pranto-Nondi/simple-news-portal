@@ -73,11 +73,11 @@ displayCategory = (data, categoryName) => {
                                <p class="m-0 p-0">${total_view === null ? 0 : total_view}</p>
                                </div>
                                <div class="d-flex align-items-center justify-content-center gap-2">
-                               <i class="fa-regular fa-star"></i>
-                               <i class="fa-regular fa-star"></i>
-                               <i class="fa-regular fa-star"></i>
-                               <i class="fa-regular fa-star"></i>
-                               <i class="fa-regular fa-star"></i>
+                               <i class="fa-sharp fa-solid fa-star"></i>
+                               <i class="fa-sharp fa-solid fa-star"></i>
+                               <i class="fa-sharp fa-solid fa-star"></i>
+                               <i class="fa-sharp fa-solid fa-star"></i>
+                               <i class="fa-sharp fa-solid fa-star-half"></i>
                                 <div> 
                                 <p class="m-0 p-0" >${rating.number}</p>
                                 </div>
@@ -142,11 +142,11 @@ showSingleCategoryDetails = (data) => {
                <p class="m-0 p-0">${total_view === null ? 0 : total_view}</p>
                </div>
                <div class="d-flex align-items-center justify-content-center gap-2">
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
-               <i class="fa-regular fa-star"></i>
+               <i class="fa-sharp fa-solid fa-star"></i>
+               <i class="fa-sharp fa-solid fa-star"></i>
+               <i class="fa-sharp fa-solid fa-star"></i>
+               <i class="fa-sharp fa-solid fa-star"></i>
+               <i class="fa-solid fa-star-half"></i>
                 <div> 
                 <p class="m-0 p-0" >${rating.number}</p>
                 </div>
