@@ -1,7 +1,7 @@
 let storeData = [];
 let rawData = []
 
-
+// all category fetch 
 const categoriesFetchData = () => {
     fetch(`https://openapi.programming-hero.com/api/news/categories`)
         .then(res => res.json())
@@ -11,9 +11,10 @@ const categoriesFetchData = () => {
         })
 }
 
+//  only all category  name in ui display 
 
 displayCategoriesName = (data) => {
-    console.log(data);
+
     const categories = document.getElementById("categories");
     const { news_category } = data;
     news_category.forEach(category => {
@@ -22,8 +23,11 @@ displayCategoriesName = (data) => {
 
 }
 
+
+/// fetch category  by using category id with name
+
 const fetchCategoryFound = (id, categoryName) => {
-    console.log(id, categoryName)
+
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
         .then(res => res.json())
         .then(data => {
@@ -37,8 +41,11 @@ const fetchCategoryFound = (id, categoryName) => {
 
 }
 
+
+//display category ui by using data with name
+
 displayCategory = (data, categoryName) => {
-    console.log(data)
+
     document.getElementById("count").innerText = data.length;
     document.getElementById("categeroy-name").innerText = categoryName;
     document.getElementById("categories-conatiner").innerHTML = "";
@@ -95,9 +102,10 @@ displayCategory = (data, categoryName) => {
 
 }
 
+// fetch  single details by id
 
 const fetchSingleDetails = (_id) => {
-    console.log(_id)
+
 
     fetch(`https://openapi.programming-hero.com/api/news/${_id}`)
         .then(res => res.json())
@@ -107,9 +115,10 @@ const fetchSingleDetails = (_id) => {
         })
 
 }
+// modal open single details
 
 showSingleCategoryDetails = (data) => {
-    console.log(data);
+
     const { _id, details, image_url, title, author, total_view, rating, category_id, others_info } = data;
     const publishedDate = new Date(author.published_date).toLocaleString().slice(0, 10)
     document.getElementById("modal-body-category").innerHTML = `
@@ -160,6 +169,7 @@ showSingleCategoryDetails = (data) => {
 }
 
 
+// trending
 
 trending = () => {
     const trendingData = storeData.filter(data => data.others_info.is_trending === true
@@ -168,41 +178,35 @@ trending = () => {
     displayCategory(trendingData, categoryName)
 
 }
+
+// todays pick
+
+
 const todaysPick = () => {
     const todayPickData = storeData.filter(data => data.others_info.is_todays_pick === true)
     const categoryName = document.getElementById("categeroy-name").innerText;
     displayCategory(todayPickData, categoryName)
 
 }
+
+// ascending and descending sort view
+
+
 selectSort = () => {
     const categoryName = document.getElementById("categeroy-name").innerText;
     const select = document.getElementById("sorting");
-    console.log(select.value)
-    console.log(storeData, rawData)
     if (select.value === 'ascending') {
-        console.log(storeData, rawData)
         const Ascending = storeData.sort((a, b) => a.total_view - b.total_view);
-        console.log(Ascending)
-
         displayCategory(Ascending, categoryName)
     }
     else if (select.value === 'descending') {
 
         const Descending = storeData.sort((a, b) => b.total_view - a.total_view);
-        console.log(Descending)
-
         displayCategory(Descending, categoryName)
-
     }
     else {
-
-        console.log(storeData, rawData)
         displayCategory(rawData, categoryName)
     }
 
 }
 
-
-
-
-console.log(new Date("2022-08-24 17:27:34").toLocaleString().slice(0, 10));
